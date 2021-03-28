@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SubscribersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/payments', [PaymentController::class, 'index'])->name('payments');
+Route::get('/settings', [SettingsController::class, 'index'])->name('settings');
+Route::get('/subscribers', [SubscribersController::class, 'index'])->name('subscribers');
